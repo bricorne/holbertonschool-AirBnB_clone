@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """create class BaseModel"""
-
+import models
 import uuid
 from datetime import datetime
 
@@ -19,10 +19,13 @@ class BaseModel:
                     self.__dict__[k] = datetime.strptime(v, tformat)
                 else:
                     self.__dict__[k] = v
+        else:
+            models.storage.new(self)
 
     def save(self):
         """Update updated_at with the current datetime."""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """Return the dictionary of the BaseModel instance."""

@@ -17,24 +17,25 @@ class FileStorage:
 
 	def new(self, obj):
 		"""Sets in __objects the obj with key <obj class name>.id"""
-		objname = obj.__class__.__name__
-		FileStorage.__objects["{}.{}".format(objname, obj.id)] = obj
+		key = f"{obj.__class__.__name__}.{obj.id}"
+		self.__objects[key] = obj
 
 	def save(self):
 		"""serializes __objects to the JSON file (path: __file_path)"""
-		odict = FileStorage.__objects
-		objdict = {obj: odcit[obj].to_dict() for obj in odict.keys()}
-		with open(FileStorage.__file_path, "w") as f:
-			json.dump(objdict, f)
+		data = {}
+		for key, obj in self.__objects.items():
+			data[key] = obj.to_dict()
+		with open(FileStorage.__file_path, 'w') as file:
+			json.dump(data, file)
 
 	def reload(self):
 		"""deserializes the JSON file to __objects"""
 		try:
-			with open(FileStorage.__file_path) as f:
-				objdict = json.load(f)
-				for o in objdict.values():
-					cls_name = o["__class__"]
-					del o["__class__"]
-					self.new(eval(cls_name)(**o))
+			with open(FileStorage.__file_path, 'r') as file:
+				data = json.load(file)
+				cls_name = '__class__'
+				for key, obj in data.items():
+					class_name= key.split('.')
+					FileStorage.__objects[key] = eval(obj[cls_name] + '(**obj)')
 		except FileNotFoundError:
 			return
