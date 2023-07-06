@@ -3,12 +3,14 @@
 import cmd
 import json
 from models.base_model import BaseModel
+from models.user import User
 from models.engine.file_storage import FileStorage
 
 class HBNBCommand(cmd.Cmd):
     """create a prompt"""
     prompt = '(hbnb) '
-    list_class = ['BaseModel']
+    list_class = ['BaseModel', 'User', 'State', 'City', 'Amenity',
+                  'Place', 'Review']
 
     def do_EOF(self, arg):
         """Exit the program using EOF"""
@@ -101,6 +103,43 @@ class HBNBCommand(cmd.Cmd):
         else:
             print([str(obj) for obj in objects.values()
                    if type(obj).__name__ == arg[0]])
+    
+    def do_update(self, arg):
+        """Updates an instance based on the class name and id """
+        if not arg:
+            print("** class name missing **")
+            return
+        args = arg.split()
+        class_name = args[0]
 
+        if class_name not in HBNBCommand.list_class:
+            print("** class doesn't exist **")
+            return
+
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+        inst_id = args[1]  
+        
+        key = "{}.{}".format(class_name, inst_id)
+        instances = FileStorage().all()
+
+        if key in instances:
+            instance = instances[key]
+        else:
+            print('** no instance found **')
+            return
+
+        if len(args) < 3:
+            print("** attribute name missing **")
+            return
+
+        if len(args) < 4:
+            print("** value missing **")
+            return
+        setattr(instance, args[2], args[3])
+        FileStorage().save()
+
+        
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
