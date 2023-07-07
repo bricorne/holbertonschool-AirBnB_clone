@@ -92,6 +92,18 @@ Deserialization is the process of reconstructing a data structure or object from
 <h3> Write & Read JSON File</h3>
 <img src="https://github.com/bricorne/holbertonschool-AirBnB_clone/assets/124582867/0eea4d51-7552-456c-8cf9-77d727d51014">
 
+<h3> Datetime</h3>
+The datetime module supplies classes for manipulating dates and times.
+
+<h3> UUID</h3>
+UUID stands for Universally Unique IDentifier. It's a 128-bit value used for a unique identification in software development. A Python Module that allows to produce different uuid version, based on the timestamp.
+
+<h3> *args</h3>
+*args allows us to pass a variable number of non-keyword arguments to a Python function. In the function, we should use an asterisk (*) before the parameter name to pass a variable number of arguments.
+
+<h3> **kwargs</h3>
+**kwargs allows us to pass a variable number of keyword arguments to a Python function. In the function, we use the double-asterisk (**) before the parameter name to denote this type of argument.
+
 <h2>Authors</h2></p>
 
 Brice Poitevineau - [@bricorne](https://github.com/bricorne)<br>
