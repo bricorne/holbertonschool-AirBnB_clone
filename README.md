@@ -89,6 +89,9 @@ Serialization is the process of converting a data object a combination of code a
 
 Deserialization is the process of reconstructing a data structure or object from a series of bytes or a string in order to instantiate the object for consumption. Here, the convertion of the JSON format back to python object.
 
+<h3> Write & Read JSON File</h3>
+<img src="https://github.com/bricorne/holbertonschool-AirBnB_clone/assets/124582867/0eea4d51-7552-456c-8cf9-77d727d51014">
+
 <h2>Authors</h2></p>
 
 Brice Poitevineau - [@bricorne](https://github.com/bricorne)<br>
