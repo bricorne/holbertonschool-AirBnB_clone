@@ -34,7 +34,8 @@ Documented commands (type help <topic>):
 EOF  help  quit
 
 (hbnb) 
-(hbnb) 
+(hbnb) ![args](https://github.com/bricorne/holbertonschool-AirBnB_clone/assets/124582867/bbd93b20-f85e-483d-be19-bb9e9642a987)
+
 (hbnb) quit
 $
 ```
@@ -100,9 +101,11 @@ UUID stands for Universally Unique IDentifier. It's a 128-bit value used for a u
 
 <h3> *args</h3>
 *args allows us to pass a variable number of non-keyword arguments to a Python function. In the function, we should use an asterisk (*) before the parameter name to pass a variable number of arguments.
+<img src="https://github.com/bricorne/holbertonschool-AirBnB_clone/assets/124582867/dd695ed0-fa1e-4d9d-a0e0-b436ceceb839">
 
 <h3> **kwargs</h3>
 **kwargs allows us to pass a variable number of keyword arguments to a Python function. In the function, we use the double-asterisk (**) before the parameter name to denote this type of argument.
+<img src="https://github.com/bricorne/holbertonschool-AirBnB_clone/assets/124582867/062ad556-e920-467d-80a9-ef39d99afa9b">
 
 <h2>Authors</h2></p>
 
