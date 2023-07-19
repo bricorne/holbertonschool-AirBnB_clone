@@ -3,5 +3,9 @@ header {
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
-    padding-left: 20px;
+}
+.logo {
+	background: no-repeat url(../images/logo.png);
+	height: 100%;   
+	margin-left: 20px;
 }
